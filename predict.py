@@ -3,10 +3,10 @@ import sys
 
 def load_model():
     model = joblib.load("spam_detector_model.pkl")
-    vectorizer = joblib.load("vectorizer_model")
+    vectorizer = joblib.load("spam_vectorizer_model.pkl")
     return model, vectorizer
 
-def predict(text):
+def predict(text):  
     model, vectorizer = load_model()
     text_transformed = vectorizer.transform([text])
     prediction = model.predict(text_transformed)
