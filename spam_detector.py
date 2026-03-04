@@ -22,6 +22,8 @@ def train_model(data):
     y_pred = model.predict(x_text_test) 
     accuracy = accuracy_score(y_label_test, y_pred)
     report = classification_report(y_label_test, y_pred)
+    joblib.dump(model, "spam_detector_model.pkl")
+    joblib.dump(vectorizer, "vectorizer_model.pkl")
     return accuracy, report
 
 if __name__ == "__main__":
